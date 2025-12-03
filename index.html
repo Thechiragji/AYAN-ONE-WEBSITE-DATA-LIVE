@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Trippy Diamond – Ayan One | Cinematic Studio</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Cinematic video editing, VFX, DOP, wedding films, pre-weddings, music videos and commercials by Ayan One – Trippy Diamond, New Delhi." />
+  <link rel="stylesheet" href="style.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=Montserrat:wght@400;700&display=swap" rel="stylesheet" />
+</head>
+<body>
+
+  <!-- ===== Header / Navbar ===== -->
+  <header class="header">
+    <div class="container header-inner">
+      <div class="logo">
+        <img src="assets/logo.png" alt="Trippy Diamond Logo" />
+        <span>Trippy Diamond</span>
+      </div>
+
+      <nav class="nav" id="nav">
+        <a href="#hero">Home</a>
+        <a href="#about">About</a>
+        <a href="#services">Services</a>
+        <a href="#portfolio-videos">Portfolio</a>
+        <a href="#packages">Packages</a>
+        <a href="#testimonials">Reviews</a>
+        <a href="#blog">Blog</a>
+        <a href="#contact">Contact</a>
+        <a href="#booking" class="nav-cta">Book Now</a>
+      </nav>
+
+      <button class="nav-toggle" id="navToggle">
+        ☰
+      </button>
+    </div>
+  </header>
+
+  <!-- ===== Hero Section ===== -->
+  <section class="hero" id="hero">
+    <video class="hero-video" autoplay muted loop playsinline>
+      <source src="assets/hero-showreel.mp4" type="video/mp4" />
+    </video>
+    <div class="hero-overlay"></div>
+
+    <div class="hero-content container">
+      <p class="hero-tagline">Ayan One • New Delhi</p>
+      <h1 id="heroTitle">Cinematic Films, VFX & DOP by <span>Trippy Diamond</span></h1>
+      <p class="hero-subtext" id="heroSubtext">
+        Weddings • Pre-Weddings • Music Videos • Commercials • VFX • Drone • Corporate
+      </p>
+      <div class="hero-actions">
+        <a href="#portfolio-videos" class="btn primary">Watch Showreel</a>
+        <a href="#booking" class="btn ghost">Book a Project</a>
+      </div>
+      <div class="hero-meta">
+        <span>Full Production Pipeline</span>
+        <span>4K / 6K / 8K Delivery</span>
+        <span>Pan India • New Delhi Based</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== Services Highlights ===== -->
+  <section class="section" id="services">
+    <div class="container">
+      <h2 class="section-title">What I Do</h2>
+      <p class="section-subtitle">
+        End-to-end cinematic production – from concept to final color graded master.
+      </p>
+
+      <div class="grid services-grid">
+        <div class="card service-card">
+          <h3>Video Editing</h3>
+          <p>Story-focused editing, pacing, sound design and seamless transitions.</p>
+        </div>
+        <div class="card service-card">
+          <h3>VFX & Motion Graphics</h3>
+          <p>Compositing, tracking, titles, CGI elements and advanced visuals.</p>
+        </div>
+        <div class="card service-card">
+          <h3>DOP & Cinematography</h3>
+          <p>On-ground shooting for weddings, music videos, events and brands.</p>
+        </div>
+        <div class="card service-card">
+          <h3>Weddings & Pre-Weddings</h3>
+          <p>Cinematic wedding films, teasers, pre-wedding concepts and reels.</p>
+        </div>
+        <div class="card service-card">
+          <h3>Ads & Commercials</h3>
+          <p>Product films, brand promos and high-conversion social content.</p>
+        </div>
+        <div class="card service-card">
+          <h3>Music & Short Films</h3>
+          <p>Music videos and narrative short films with strong visual language.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== About Section ===== -->
+  <section class="section section-alt" id="about">
+    <div class="container about-layout">
+      <div class="about-text">
+        <h2 class="section-title">About Ayan One</h2>
+        <p>
+          I am a New Delhi based video editor, VFX artist and DOP working under the name
+          <strong>Trippy Diamond</strong>. I handle everything from wedding films and pre-weddings
+          to music videos, commercials, corporate films and high-end VFX shots.
+        </p>
+        <p>
+          With experience across multiple formats – YouTube, Instagram, short films and brand work –
+          I focus on combining story, camera language and post-production to deliver visuals that
+          actually feel cinematic, not just over-edited.
+        </p>
+        <ul class="about-list">
+          <li>Video Editing • VFX • Motion Graphics • CGI</li>
+          <li>Wedding / Pre-Wedding • Music • Commercials • Corporate</li>
+          <li>Drone, Event Coverage and Social Media Content</li>
+        </ul>
+      </div>
+      <div class="about-stats">
+        <div class="card stat-card">
+          <h3>15+ Categories</h3>
+          <p>Coverage across weddings, ads, reels, VFX, short films and more.</p>
+        </div>
+        <div class="card stat-card">
+          <h3>End-to-End</h3>
+          <p>Concept, shoot, edit, grade and delivery in one streamlined pipeline.</p>
+        </div>
+        <div class="card stat-card">
+          <h3>Pro Toolset</h3>
+          <p>Premiere Pro, After Effects, DaVinci Resolve, Blender and more.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== Video Portfolio (dynamic via admin config) ===== -->
+  <section class="section" id="portfolio-videos">
+    <div class="container">
+      <h2 class="section-title">Video Portfolio</h2>
+      <p class="section-subtitle">
+        Weddings, pre-weddings, music videos, reels, VFX and commercial work.
+      </p>
+
+      <div class="portfolio-filters">
+        <button class="filter-btn active" data-filter="all">All</button>
+        <button class="filter-btn" data-filter="wedding">Wedding</button>
+        <button class="filter-btn" data-filter="prewedding">Pre-Wedding</button>
+        <button class="filter-btn" data-filter="music">Music Video</button>
+        <button class="filter-btn" data-filter="vfx">VFX / CGI</button>
+        <button class="filter-btn" data-filter="ad">Ads / Commercial</button>
+        <button class="filter-btn" data-filter="reel">Instagram Reels</button>
+      </div>
+
+      <div class="grid portfolio-grid" id="videoGrid">
+        <!-- Admin panel se set kiya gaya data yahan JS se inject hoga.
+             Agar config nahi hai to JS kuch bhi nahi change karega aur tum
+             chaaho to yahan static items manually add kar sakte ho. -->
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== Photo Portfolio ===== -->
+  <section class="section section-alt" id="portfolio-photos">
+    <div class="container">
+      <h2 class="section-title">Photo Frames & Stills</h2>
+      <p class="section-subtitle">
+        Selected frames, behind-the-scenes and drone shots from real projects.
+      </p>
+
+      <div class="grid photo-grid" id="photoGrid">
+        <div class="photo-item">
+          <img src="assets/photo-1.jpg" alt="Cinematic still 1" />
+        </div>
+        <div class="photo-item">
+          <img src="assets/photo-2.jpg" alt="Cinematic still 2" />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== Packages / Pricing ===== -->
+  <section class="section" id="packages">
+    <div class="container">
+      <h2 class="section-title">Packages & Pricing</h2>
+      <p class="section-subtitle">
+        Custom quotes available, but here’s a basic structure to understand the range.
+      </p>
+
+      <div class="grid pricing-grid">
+        <div class="card pricing-card">
+          <h3>Editing Only</h3>
+          <p class="price">From ₹7,000</p>
+          <ul>
+            <li>Basic to advanced edit</li>
+            <li>Color correction & basic grading</li>
+            <li>Clean audio & music sync</li>
+            <li>1–2 revisions</li>
+          </ul>
+          <a href="#booking" class="btn secondary">Enquire</a>
+        </div>
+        <div class="card pricing-card featured">
+          <h3>Wedding / Pre-Wedding</h3>
+          <p class="price">From ₹30,000</p>
+          <ul>
+            <li>Full-day shoot + DOP</li>
+            <li>Teaser + main film</li>
+            <li>Cinematic color grade</li>
+            <li>Social media cutdowns</li>
+          </ul>
+          <a href="#booking" class="btn primary">Book This</a>
+        </div>
+        <div class="card pricing-card">
+          <h3>Commercial / Music Video</h3>
+          <p class="price">Custom</p>
+          <ul>
+            <li>Concept & planning</li>
+            <li>Multi-camera / lighting</li>
+            <li>VFX / motion graphics</li>
+            <li>Brand-focused delivery</li>
+          </ul>
+          <a href="#contact" class="btn secondary">Get Custom Quote</a>
+        </div>
+      </div>
+
+      <p class="pricing-note">
+        *Final pricing depends on script, location, shooting days, gear and edit complexity.
+      </p>
+    </div>
+  </section>
+
+  <!-- ===== Testimonials ===== -->
+  <section class="section section-alt" id="testimonials">
+    <div class="container">
+      <h2 class="section-title">Client Reviews</h2>
+      <p class="section-subtitle">
+        A few words from people who trusted Trippy Diamond with their visuals.
+      </p>
+
+      <div class="grid testimonial-grid">
+        <div class="card testimonial-card">
+          <p>"Ayan turned our wedding into a film. The pacing, color and music sync were unreal."</p>
+          <h4>— Wedding Client, Delhi</h4>
+        </div>
+        <div class="card testimonial-card">
+          <p>"We shot a branded video and he handled everything – DOP, edit, grade and delivery."</p>
+          <h4>— Brand Client</h4>
+        </div>
+        <div class="card testimonial-card">
+          <p>"VFX shot delivery was clean and on time. No drama, only results."</p>
+          <h4>— Production House</h4>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== Blog Preview ===== -->
+  <section class="section" id="blog">
+    <div class="container">
+      <h2 class="section-title">From the Edit Table</h2>
+      <p class="section-subtitle">
+        Thoughts, breakdowns and behind-the-scenes from real projects.
+      </p>
+
+      <div class="grid blog-grid">
+        <div class="card blog-card">
+          <h3>How I Cut a Wedding Film</h3>
+          <p>Structure, music selection and emotional beats that make a wedding film work.</p>
+          <span class="blog-meta">Coming soon</span>
+        </div>
+        <div class="card blog-card">
+          <h3>VFX Shots on a Budget</h3>
+          <p>Tricks to get high-impact visuals without a big studio pipeline.</p>
+          <span class="blog-meta">Coming soon</span>
+        </div>
+        <div class="card blog-card">
+          <h3>Pre-Wedding Shoots that Don’t Feel Fake</h3>
+          <p>Working with real couples, real locations and real light.</p>
+          <span class="blog-meta">Coming soon</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== Contact & Booking ===== -->
+  <section class="section section-alt" id="contact">
+    <div class="container contact-layout">
+      <div class="contact-info">
+        <h2 class="section-title">Contact & Social</h2>
+        <p>
+          Based in <strong>New Delhi</strong>, available for projects across India.
+        </p>
+
+        <ul class="contact-list">
+          <li><strong>Phone / WhatsApp:</strong> <a href="tel:+918878601845">+91 88786 01845</a></li>
+          <li><strong>Email:</strong> <a href="mailto:trippydiamond69@gmail.com">trippydiamond69@gmail.com</a></li>
+          <li><strong>Instagram:</strong> <a href="https://www.instagram.com/the_trippy_diamond/" target="_blank">@the_trippy_diamond</a></li>
+          <li><strong>YouTube:</strong> <a href="https://youtu.be/HtbPnlqFWPs?si=RF1l1DA82Npo58bs" target="_blank">Showreel Link</a></li>
+        </ul>
+      </div>
+
+      <div class="contact-form-wrapper" id="booking">
+        <h2 class="section-title">Project / Booking Form</h2>
+        <form class="form" onsubmit="return false;">
+          <div class="form-row">
+            <input type="text" placeholder="Full Name" required />
+            <input type="tel" placeholder="Phone Number" required />
+          </div>
+          <div class="form-row">
+            <input type="email" placeholder="Email" required />
+            <input type="text" placeholder="City / Location" />
+          </div>
+          <div class="form-row">
+            <select required>
+              <option value="">Project Type</option>
+              <option>Wedding Film</option>
+              <option>Pre-Wedding</option>
+              <option>Music Video</option>
+              <option>Commercial / Ad</option>
+              <option>Corporate / Event</option>
+              <option>Editing Only</option>
+              <option>VFX / CGI</option>
+              <option>Other</option>
+            </select>
+            <select>
+              <option value="">Budget Range</option>
+              <option>₹3,000 – ₹7,000</option>
+              <option>₹7,000 – ₹15,000</option>
+              <option>₹15,000 – ₹30,000</option>
+              <option>₹30,000+</option>
+            </select>
+          </div>
+          <div class="form-row">
+            <input type="date" placeholder="Event Date / Deadline" />
+          </div>
+          <textarea placeholder="Tell me about your project, references, mood etc." rows="4"></textarea>
+
+          <button class="btn primary" type="submit">Submit (Demo Only)</button>
+          <p class="form-note">
+            *Form is static for demo. For real leads, connect this with email / Google Forms.
+          </p>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== UPI / Payment CTA ===== -->
+  <section class="section payment-section">
+    <div class="container payment-layout">
+      <div>
+        <h2 class="section-title">Advance Booking via UPI</h2>
+        <p>
+          To lock dates, a small advance can be paid. UPI details will be shared directly on WhatsApp
+          after final discussion.
+        </p>
+      </div>
+      <div class="upi-qr">
+        <img src="assets/qr-upi.png" alt="UPI QR" />
+        <p>Sample UPI QR (replace with actual)</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== Footer ===== -->
+  <footer class="footer">
+    <div class="container footer-inner">
+      <p>© <span id="year"></span> Ayan One — Trippy Diamond. All rights reserved.</p>
+      <p>
+        Site built with HTML, CSS & JavaScript · Hosted on GitHub Pages ·
+        <a href="admin.html" style="color:#777; text-decoration:none;">Admin</a>
+      </p>
+    </div>
+  </footer>
+
+  <!-- ===== Floating WhatsApp Button ===== -->
+  <a href="https://wa.me/918878601845" class="whatsapp-btn" target="_blank" aria-label="Chat on WhatsApp">
+    💬
+  </a>
+
+  <!-- ===== Video Modal ===== -->
+  <div class="video-modal" id="videoModal">
+    <div class="video-modal-content">
+      <button class="video-modal-close" id="videoModalClose">✕</button>
+      <div class="video-modal-frame">
+        <iframe id="videoFrame" src="" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== Photo Lightbox ===== -->
+  <div class="lightbox" id="lightbox">
+    <span class="lightbox-close" id="lightboxClose">✕</span>
+    <img id="lightboxImage" src="" alt="Preview" />
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
