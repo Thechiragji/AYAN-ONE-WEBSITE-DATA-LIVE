@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Admin – Trippy Diamond</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <style>
+    body {
+      margin: 0;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background: #05060a;
+      color: #f4f4f7;
+    }
+    .wrap {
+      max-width: 900px;
+      margin: 32px auto;
+      padding: 0 16px 40px;
+    }
+    h1, h2 {
+      margin-bottom: 8px;
+    }
+    p {
+      margin-bottom: 12px;
+      color: #a3a7b5;
+    }
+    .card {
+      background: #111319;
+      border: 1px solid #262837;
+      border-radius: 14px;
+      padding: 16px 18px 20px;
+      margin-bottom: 20px;
+    }
+    label {
+      font-size: 0.88rem;
+      display: block;
+      margin-bottom: 4px;
+    }
+    input, select, textarea {
+      width: 100%;
+      padding: 8px 10px;
+      border-radius: 8px;
+      border: 1px solid #262837;
+      background: #05060a;
+      color: #f4f4f7;
+      margin-bottom: 10px;
+      font-size: 0.9rem;
+    }
+    textarea { resize: vertical; min-height: 70px; }
+    button {
+      border-radius: 999px;
+      border: none;
+      padding: 8px 16px;
+      font-size: 0.9rem;
+      cursor: pointer;
+      margin-right: 8px;
+    }
+    .btn-primary {
+      background: #f5b318;
+      color: #000;
+    }
+    .btn-ghost {
+      background: transparent;
+      color: #f4f4f7;
+      border: 1px solid #444;
+    }
+    .login-box {
+      max-width: 360px;
+      margin: 80px auto;
+      text-align: center;
+    }
+    .login-box h1 { margin-bottom: 4px; }
+    .small {
+      font-size: 0.78rem;
+      color: #777c8a;
+    }
+    .error {
+      color: #ff4b5c;
+      font-size: 0.8rem;
+      margin-bottom: 8px;
+    }
+    .portfolio-list {
+      font-size: 0.85rem;
+      border-top: 1px solid #262837;
+      margin-top: 10px;
+      padding-top: 10px;
+      max-height: 220px;
+      overflow: auto;
+    }
+    .portfolio-item-row {
+      display: flex;
+      justify-content: space-between;
+      gap: 8px;
+      padding: 4px 0;
+      border-bottom: 1px solid #1b1d27;
+    }
+    .portfolio-item-row span {
+      flex: 1;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+    .portfolio-item-row button {
+      padding: 4px 10px;
+      font-size: 0.78rem;
+    }
+    .badge {
+      display: inline-block;
+      padding: 2px 8px;
+      border-radius: 999px;
+      background: rgba(245, 179, 24, 0.16);
+      color: #f5b318;
+      font-size: 0.75rem;
+      margin-left: 4px;
+    }
+    a {
+      color: #f5b318;
+      text-decoration: none;
+    }
+  </style>
+</head>
+<body>
+  <div class="wrap" id="app">
+    <!-- JS will render here -->
+  </div>
+
+  <script>
+    const VALID_EMAIL = "admin@9516";
+    const VALID_PASSWORD = "Admin@1234";
+    const STORAGE_KEY = "td_siteConfig";
+
+    function getConfig() {
+      const raw = localStorage.getItem(STORAGE_KEY);
+      if (!raw) {
+        return {
+          heroTitle: 'Cinematic Films, VFX & DOP by <span>Trippy Diamond</span>',
+          heroSubtext: 'Weddings • Pre-Weddings • Music Videos • Commercials • VFX • Drone • Corporate',
+          portfolio: []
+        };
+      }
+      try {
+        return JSON.parse(raw);
+      } catch (e) {
+        return {
+          heroTitle: 'Cinematic Films, VFX & DOP by <span>Trippy Diamond</span>',
+          heroSubtext: 'Weddings • Pre-Weddings • Music Videos • Commercials • VFX • Drone • Corporate',
+          portfolio: []
+        };
+      }
+    }
+
+    function saveConfig(config) {
+      localStorage.setItem(STORAGE_KEY, JSON.stringify(config));
+      alert("Config saved. Apni main website reload karo (F5).");
+    }
+
+    function renderLogin(errorMsg) {
+      const app = document.getElementById("app");
+      app.innerHTML = `
+        <div class="login-box card">
+          <h1>Admin Login</h1>
+          <p class="small">Ye panel sirf tumhare browser ka content control karta hai.<br/>Public CMS ke liye backend chahiye.</p>
+          ${errorMsg ? `<div class="error">${errorMsg}</div>` : ""}
+          <div>
+            <label>Email</label>
+            <input type="email" id="loginEmail" placeholder="admin@9516" />
+            <label>Password</label>
+            <input type="password" id="loginPassword" placeholder="Admin@1234" />
+            <button class="btn-primary" id="loginBtn">Login</button>
+          </div>
+          <p class="small" style="margin-top:10px;">
+            Default: <strong>admin@9516</strong> / <strong>Admin@1234</strong>
+          </p>
+          <p class="small">
+            <a href="index.html">← Back to site</a>
+          </p>
+        </div>
+      `;
+
+      document.getElementById("loginBtn").onclick = () => {
+        const email = document.getElementById("loginEmail").value.trim();
+        const pass = document.getElementById("loginPassword").value.trim();
+        if (email === VALID_EMAIL && pass === VALID_PASSWORD) {
+          renderDashboard();
+        } else {
+          renderLogin("Galat email ya password.");
+        }
+      };
+    }
+
+    function renderDashboard() {
+      const app = document.getElementById("app");
+      const cfg = getConfig();
+
+      app.innerHTML = `
+        <h1>Trippy Diamond – Admin Panel <span class="badge">Local Only</span></h1>
+        <p class="small">
+          Jo settings yahan save karoge, woh <strong>tumhare browser ke localStorage</strong> me rahengi.
+          Main site reload karoge to hero text + portfolio isi config se load hoga (sirf tumhare system par).
+        </p>
+
+        <div class="card">
+          <h2>Hero Section</h2>
+          <p>Homepage ka main heading aur line yahan se change karo.</p>
+          <label>Hero Title (HTML allowed)</label>
+          <textarea id="heroTitleInput"></textarea>
+          <label>Hero Subtext</label>
+          <textarea id="heroSubtextInput"></textarea>
+          <button class="btn-primary" id="saveHeroBtn">Save Hero</button>
+        </div>
+
+        <div class="card">
+          <h2>Portfolio Items (Videos / Reels)</h2>
+          <p>
+            Yahan se tum YouTube, Instagram Reels, Ads, VFX sab add kar sakte ho.
+            Category ke hisaab se filter kaam karega.
+          </p>
+          <label>Title</label>
+          <input id="pTitle" placeholder="Wedding Film – New Delhi" />
+          <label>Description</label>
+          <textarea id="pDesc" placeholder="Short description of the video"></textarea>
+          <label>Category</label>
+          <select id="pCategory">
+            <option value="wedding">Wedding</option>
+            <option value="prewedding">Pre-Wedding</option>
+            <option value="music">Music Video</option>
+            <option value="vfx">VFX / CGI</option>
+            <option value="ad">Ads / Commercial</option>
+            <option value="reel">Instagram Reel</option>
+          </select>
+          <label>Thumbnail URL (image)</label>
+          <input id="pThumb" placeholder="https://..." />
+          <label>Video URL (YouTube / Instagram embed)</label>
+          <input id="pVideo" placeholder="https://youtu.be/... OR https://www.instagram.com/reel/.../embed" />
+          <button class="btn-primary" id="addPortfolioBtn">Add Item</button>
+          <button class="btn-ghost" id="clearListBtn">Clear All Items</button>
+
+          <div class="portfolio-list" id="portfolioList"></div>
+          <button class="btn-primary" id="saveAllBtn" style="margin-top:10px;">Save All Changes</button>
+        </div>
+
+        <p class="small">
+          <a href="index.html">← Back to main site</a>
+        </p>
+      `;
+
+      // Fill hero inputs
+      document.getElementById("heroTitleInput").value = cfg.heroTitle || "";
+      document.getElementById("heroSubtextInput").value = cfg.heroSubtext || "";
+
+      let portfolio = Array.isArray(cfg.portfolio) ? cfg.portfolio : [];
+
+      function renderPortfolioList() {
+        const box = document.getElementById("portfolioList");
+        if (!portfolio.length) {
+          box.innerHTML = "<p class='small'>Abhi koi item nahi hai.</p>";
+          return;
+        }
+        box.innerHTML = portfolio
+          .map(
+            (item, idx) => `
+          <div class="portfolio-item-row">
+            <span>[${item.category}] ${item.title}</span>
+            <button data-idx="${idx}">Remove</button>
+          </div>
+        `
+          )
+          .join("");
+        box.querySelectorAll("button").forEach((btn) => {
+          btn.onclick = () => {
+            const i = parseInt(btn.dataset.idx, 10);
+            portfolio.splice(i, 1);
+            renderPortfolioList();
+          };
+        });
+      }
+
+      renderPortfolioList();
+
+      document.getElementById("saveHeroBtn").onclick = () => {
+        const cur = getConfig();
+        cur.heroTitle = document.getElementById("heroTitleInput").value;
+        cur.heroSubtext = document.getElementById("heroSubtextInput").value;
+        cur.portfolio = portfolio;
+        saveConfig(cur);
+      };
+
+      document.getElementById("addPortfolioBtn").onclick = () => {
+        const title = document.getElementById("pTitle").value.trim();
+        const desc = document.getElementById("pDesc").value.trim();
+        const cat = document.getElementById("pCategory").value;
+        const thumb = document.getElementById("pThumb").value.trim();
+        const video = document.getElementById("pVideo").value.trim();
+
+        if (!title || !video) {
+          alert("Title aur video URL mandatory hain.");
+          return;
+        }
+
+        portfolio.push({
+          title,
+          description: desc,
+          category: cat,
+          thumbUrl: thumb,
+          videoUrl: video
+        });
+
+        document.getElementById("pTitle").value = "";
+        document.getElementById("pDesc").value = "";
+        document.getElementById("pThumb").value = "";
+        document.getElementById("pVideo").value = "";
+
+        renderPortfolioList();
+      };
+
+      document.getElementById("clearListBtn").onclick = () => {
+        if (confirm("Saare portfolio items delete karne hain?")) {
+          portfolio = [];
+          renderPortfolioList();
+        }
+      };
+
+      document.getElementById("saveAllBtn").onclick = () => {
+        const cur = getConfig();
+        cur.heroTitle = document.getElementById("heroTitleInput").value;
+        cur.heroSubtext = document.getElementById("heroSubtextInput").value;
+        cur.portfolio = portfolio;
+        saveConfig(cur);
+      };
+    }
+
+    // start
+    renderLogin();
+  </script>
+</body>
+</html>
